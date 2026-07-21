@@ -16,37 +16,21 @@ public:
         ListNode* temp2=l2;
         ListNode* temp=dummy;
         int carry=0;
-        while(temp1 && temp2){
-            int data=((temp1->val+temp2->val)+carry)%10;
-            ListNode* NewNode=new ListNode(data);
-            carry=(temp1->val+temp2->val+carry)/10;
-            temp->next=NewNode;
-            temp=temp->next;
+        while(temp1 || temp2 || carry){
+            int sum=carry;
+           if(temp1){
+            sum+=temp1->val;
             temp1=temp1->next;
+           }
+            if(temp2){
+            sum+=temp2->val;
             temp2=temp2->next;
+           }
+           ListNode* NewNode=new ListNode(sum%10);
+           temp->next=NewNode;
+           carry=sum/10;
+           temp=temp->next;
         }
-        while(temp1){
-            int data=((temp1->val)+carry)%10;
-            ListNode* NewNode=new ListNode(data);
-            carry=(temp1->val+carry)/10;
-            temp->next=NewNode;
-            temp=temp->next;
-            temp1=temp1->next;
-        }
-        while(temp2){
-            int data=((temp2->val)+carry)%10;
-            ListNode* NewNode=new ListNode(data);
-            carry=(temp2->val+carry)/10;
-            temp->next=NewNode;
-            temp=temp->next;
-            temp2=temp2->next;
-        }
-        if(carry!=0){
-            ListNode* lastNode=new ListNode(carry);
-            temp->next=lastNode;
-            temp=temp->next;
-        }
-        temp->next=nullptr;
         ListNode * head=dummy->next;
         delete dummy;
         return head;
