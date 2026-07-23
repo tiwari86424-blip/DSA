@@ -24,6 +24,7 @@ public:
     }
     ListNode* reverseKGroup(ListNode* head, int k) {
         if(head==nullptr || head->next==nullptr) return head;
+        if(k==1) return head;
         int count=1;
         ListNode* first=head;
          ListNode* current=head;
