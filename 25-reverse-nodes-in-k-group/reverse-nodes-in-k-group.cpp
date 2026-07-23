@@ -26,18 +26,18 @@ public:
         if(head==nullptr || head->next==nullptr) return head;
         if(k==1) return head;
         int count=1;
+        ListNode*dummy=new ListNode(-1);
+        dummy->next=head;
         ListNode* first=head;
          ListNode* current=head;
-         ListNode*prev=nullptr;
+         ListNode*prev=dummy;
         while(current){
            if(count==k){
                ListNode* last=current;
                current=current->next;
                last->next=nullptr;
                last=reverse(first);
-               if(head==first){
-                head=last;
-               }
+
               if(prev) prev->next=last;
               prev=first;
               first->next=current;
@@ -50,7 +50,9 @@ public:
             current=current->next;
            }
         }
-        return head;
+       head=dummy->next;
+       delete dummy;
+       return head;
 
     }
 };
