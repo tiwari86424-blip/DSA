@@ -23,6 +23,7 @@ public:
         return prev;
     }
     void reorderList(ListNode* head) {
+        if(head==nullptr || head->next==nullptr) return;
         ListNode* fast=head;
         ListNode* slow=head;
         while(fast->next && fast->next->next){
