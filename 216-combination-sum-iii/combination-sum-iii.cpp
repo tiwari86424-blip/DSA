@@ -1,8 +1,8 @@
 class Solution {
 public:
     void FindCombinations(int index,int k,int n,vector<vector<int>>&ans,vector<int>&ds){
-        if(n==0){
-            if(ds.size()==k){
+        if(ds.size()==k){
+            if(n==0){
             ans.push_back(ds);
             }
             return;
