@@ -1,29 +1,28 @@
 class Solution {
 public:
-    double Pow(double x,long long  n,double &ans){
+    double Pow(double x,long long  n){
        if(n<=0){
        return 1;
        }
        if(n==1){
-        return ans;
+        return x;
        }
        
-        ans=Pow(x,n/2,ans);
+        double half=Pow(x,n/2);
         if(n%2==0){
-        return ans*ans;
+        return half*half;
        }
-       return x*ans*ans;
+       return x*half*half;
     }
     double myPow(double x, int n) {
-        double ans=x;
         long long N=n;
         if(N>=0){
-            return Pow(x,N,ans);
+            return Pow(x,N);
                
         }
         else{
             N=-N;
-            return 1.0/Pow(x,N,ans);
+            return 1.0/Pow(x,N);
         }
         
     }
