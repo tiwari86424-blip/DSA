@@ -18,21 +18,28 @@ public:
         int cp=col%3;
         rp=row-rp;
         cp=col-cp;
-        //first row
+        // //first row
+        // for(int j=cp;j<=cp+2;j++){
+        //     if(board[rp][j]-'0'==index)
+        //          return false;
+        // }
+        // //second row
+        // for(int j=cp;j<=cp+2;j++){
+        //     if(board[rp+1][j]-'0'==index)
+        //          return false;
+        // }
+        // //third row
+        // for(int j=cp;j<=cp+2;j++){
+        //     if(board[rp+2][j]-'0'==index)
+        //          return false;
+        // }
         for(int j=cp;j<=cp+2;j++){
-            if(board[rp][j]-'0'==index)
+            for(int i=0;i<=2;i++){
+            if(board[rp+i][j]-'0'==index)
                  return false;
+            }
         }
-        //second row
-        for(int j=cp;j<=cp+2;j++){
-            if(board[rp+1][j]-'0'==index)
-                 return false;
-        }
-        //third row
-        for(int j=cp;j<=cp+2;j++){
-            if(board[rp+2][j]-'0'==index)
-                 return false;
-        }
+
         return true;
 
 
