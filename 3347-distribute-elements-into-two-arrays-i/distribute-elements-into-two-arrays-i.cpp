@@ -12,15 +12,10 @@ public:
                 arr2.push_back(nums[i]);
             }
         }
-        vector<int>result;
-        int n1=arr1.size();
         int n2=arr2.size();
-        for(int i=0;i<n1;i++){
-            result.push_back(arr1[i]);
-        }
         for(int i=0;i<n2;i++){
-            result.push_back(arr2[i]);
+            arr1.push_back(arr2[i]);
         }
-        return result;
+        return arr1;
     }
 };
