@@ -3,6 +3,7 @@ public:
     void CreateParenthesis(int n,int ob,int cb,vector<string>& ans,string&ds){
         if(ob==n && cb==n){
             ans.push_back(ds);
+            return;
         }
         if(ob<n){
             ds +='(';
